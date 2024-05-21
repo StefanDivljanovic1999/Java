@@ -1,0 +1,12 @@
+package zadatak1;
+
+public class ProbaAnalizeReciIRecenica {
+public static void main(String[] args) {
+	AnalizatorReciIRecenica a= new AnalizatorReciIRecenica();
+	a.setTekst("Burek sa sirom!");
+	a.bezPrvogSlova();
+	a.bezPrvaCetiriSlova();
+	a.bezPrveReci();
+
+}
+}

@@ -1,0 +1,19 @@
+import labis.cvorovi.CvorStabla;
+import labis.generator.StabloGenerator;
+import labis.stabla.ABinarnoStablo;
+
+public class test extends ABinarnoStablo {
+
+	
+
+	public static void main(String[] args) {
+		stabla4 s= new stabla4();
+		
+	ABinarnoStablo a= new ABinarnoStablo();
+	StabloGenerator.izgenerisiStablo(a);
+	System.out.println(a.koren);
+	
+	}
+	
+
+}

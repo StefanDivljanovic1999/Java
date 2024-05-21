@@ -1,0 +1,15 @@
+package stef;
+
+public class Test {
+public static void main(String[] args) {
+	Racunar r= new Racunar();
+	r.markaIModel="Suzuki GSXR";
+	r.kubikaza=899;
+	Racunar r1= new Racunar();
+	r1.markaIModel="Yamaha 1500";
+	r1.kubikaza=500;
+	
+	System.out.println("Marka i model: \n"+r.markaIModel+ " kubikaza: "+r.kubikaza);
+
+}
+}

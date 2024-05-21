@@ -1,0 +1,9 @@
+package zadatak1;
+
+public class ProbaSlozeniKalkulator {
+
+	public static void main(String[] args) {
+		double br= 10/4;
+		System.out.println(br);
+	}
+}

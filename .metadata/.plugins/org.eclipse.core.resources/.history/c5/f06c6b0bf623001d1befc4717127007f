@@ -1,0 +1,16 @@
+import labis.cvorovi.CvorStabla;
+import labis.generator.StabloGenerator;
+
+public class test {
+
+	
+
+	public static void main(String[] args) {
+		stabla4 s= new stabla4();
+	StabloGenerator.izgenerisiStablo(s);
+	
+	
+	}
+	
+
+}

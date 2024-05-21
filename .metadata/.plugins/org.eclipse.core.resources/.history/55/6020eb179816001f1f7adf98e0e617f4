@@ -1,0 +1,10 @@
+package zadatak1;
+
+import java.time.LocalDateTime;
+
+public class TwitterPoruka {
+String korisnik="nepoznato";
+String poruka="nepoznato";
+LocalDateTime datum= LocalDateTime.now();
+
+}

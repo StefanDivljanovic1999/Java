@@ -1,0 +1,11 @@
+package zadatak1;
+
+public class ProbaAnalizatora {
+public static void main(String[] args) {
+	AnalizatorSlovaUTesktu a= new AnalizatorSlovaUTesktu();
+	a.tekst="Ides za Kanadu, sivi audi rolam po Beogradu";
+	System.out.println(a.tekst);
+	System.out.println("Duzina teksta: "+a.duzinaTeksta());
+	System.out.println("Broj pojavljivanje malog slova a: "+a.pojavljivanjeMalogA());
+}
+}

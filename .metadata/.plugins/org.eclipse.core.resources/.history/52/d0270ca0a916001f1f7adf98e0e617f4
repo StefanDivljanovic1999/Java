@@ -1,0 +1,8 @@
+package zadatak1;
+
+public class ProbaAnalizatora {
+public static void main(String[] args) {
+	AnalizatorTeksta a= new AnalizatorTeksta("Fox fox grca grca");
+	System.out.println(a.tekst);
+}
+}

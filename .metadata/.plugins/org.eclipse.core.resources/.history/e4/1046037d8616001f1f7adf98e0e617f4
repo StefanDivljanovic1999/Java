@@ -1,0 +1,30 @@
+package zadatak1;
+
+public class TezineClanovaEkipe {
+
+	double[] nizTezina;
+	int brojac=0;
+	
+	public TezineClanovaEkipe() {
+		nizTezina= new double[20];
+		for (int i = 0; i < nizTezina.length; i++) {
+			nizTezina[i]=-1;
+		}
+	}
+	
+	public void unesi(double tezina) {
+		if(tezina<40.5 || brojac>nizTezina.length) {
+			return;
+		}
+		
+		
+		nizTezina[brojac++]=tezina;
+	}
+	
+	public void ispisi() {
+		for (int i = 0; i < nizTezina.length; i++) {
+			if(nizTezina[i]!=-1)
+			System.out.println(nizTezina[i]);
+		}
+	}
+}

@@ -1,0 +1,32 @@
+import labis.cvorovi.CvorStabla;
+
+public class test {
+
+	
+
+	public static void main(String[] args) {
+		stabla4 s= new stabla4();
+		
+		CvorStabla c= new CvorStabla(18);
+		c.levo=new CvorStabla(3);
+		c.desno= new CvorStabla(7);
+		c.levo.desno= new CvorStabla(5);
+		c.desno.desno= new CvorStabla(6);
+		c.desno.levo= new CvorStabla(1);
+		c.desno.levo.levo= new CvorStabla(4);
+		c.desno.desno.levo= new CvorStabla(3);
+		s.ispisi(c);
+		System.out.println();
+		CvorStabla d= new CvorStabla(18);
+		d.levo=new CvorStabla(3);
+		d.desno= new CvorStabla(7);
+		d.levo.desno= new CvorStabla(5);
+		d.desno.desno= new CvorStabla(6);
+		d.desno.levo= new CvorStabla(1);
+		d.desno.levo.levo= new CvorStabla(4);
+		d.desno.desno.levo= new CvorStabla(31);
+		s.ispisi(d);
+		System.out.println("\n "+s.ekvivalentna(c, d));
+	}
+
+}

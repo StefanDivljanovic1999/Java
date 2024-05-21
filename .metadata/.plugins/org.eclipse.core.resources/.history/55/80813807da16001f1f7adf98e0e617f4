@@ -1,0 +1,13 @@
+package zadatak1;
+
+public class ProbaAnalizeReciIRecenica {
+public static void main(String[] args) {
+	AnalizatorReciIRecenica a= new AnalizatorReciIRecenica();
+	a.setTekst("K kuruz sa sirom . Burek sa visnjom.Tresnje iz fortune.");
+	
+	System.out.println("Tekst bez prve recenice: "+a.bezPrveRecenice());
+	System.out.println("Poslednja rec u tekstu je: "+a.PoslednjaRec());
+	System.out.println("Poslednja recenica u tekstu je: "+a.PoslednjaRecenica());
+
+}
+}

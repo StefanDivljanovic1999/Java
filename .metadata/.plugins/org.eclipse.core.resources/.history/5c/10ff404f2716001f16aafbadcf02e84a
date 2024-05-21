@@ -1,0 +1,8 @@
+package zadatak1;
+
+public class TezineProba {
+	public static void main(String[] args) {
+	TezineClanovaEkipe t= new TezineClanovaEkipe();
+	t.unesi(15);
+}
+}

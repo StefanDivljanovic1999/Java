@@ -1,0 +1,46 @@
+import labis.cvorovi.CvorStabla;
+
+public class test {
+
+	
+
+	public static void main(String[] args) {
+		stabla4 s= new stabla4();
+		
+		CvorStabla c= new CvorStabla(18);
+		c.levo=new CvorStabla(3);
+		c.desno= new CvorStabla(7);
+		c.levo.desno= new CvorStabla(588);
+		c.desno.desno= new CvorStabla(6);
+		c.desno.levo= new CvorStabla(1999);
+		c.desno.levo.levo= new CvorStabla(4);
+		c.desno.desno.levo= new CvorStabla(3);
+		s.ispisi(c);
+		System.out.println();
+	
+		CvorStabla d= new CvorStabla(18);
+		d.levo=new CvorStabla(3);
+		d.desno= new CvorStabla(7);
+		d.levo.desno= new CvorStabla(5);
+		d.desno.desno= new CvorStabla(6);
+		d.desno.levo= new CvorStabla(1);
+		d.desno.levo.levo= new CvorStabla(4);
+		d.desno.desno.levo= new CvorStabla(3);
+		
+		
+		CvorStabla e= new CvorStabla(1);
+		e.desno=new CvorStabla(3);
+		e.levo= new CvorStabla(-7);
+		e.desno.levo= new CvorStabla(-5);
+		e.levo.levo= new CvorStabla(6);
+		e.levo.desno= new CvorStabla(4);
+		e.levo.desno.desno= new CvorStabla(-54);
+		e.levo.levo.desno= new CvorStabla(17);
+		e.levo.desno.desno.levo= new CvorStabla(-9);
+		s.ispisi(e);
+		System.out.println("\n"+s.zbir_pozitivnih(e));
+		System.out.println("\n" +s.zbir_negativnih(e));
+		
+	}
+
+}

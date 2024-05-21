@@ -1,0 +1,9 @@
+package zadatak1;
+
+public class ProbaOcena {
+	
+	public static void main(String[] args) {
+	OceneStudenata o= new OceneStudenata();
+	
+}
+}

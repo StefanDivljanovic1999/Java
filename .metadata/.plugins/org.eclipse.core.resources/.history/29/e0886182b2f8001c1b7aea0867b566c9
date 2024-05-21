@@ -1,0 +1,29 @@
+import labis.cvorovi.CvorDSListe;
+import labis.test.ListGenerator;
+
+public class inv_test_19 {
+ public static void main(String[] args) {
+	invertuj_po_k_jun_19 i= new invertuj_po_k_jun_19();
+	System.out.println("--------------------LISTE--------------------");
+	
+	
+	CvorDSListe list= null;
+	list= new CvorDSListe(15, null, list);
+	list= new CvorDSListe(18, null, list);
+	list= new CvorDSListe(23, null, list);
+	list= new CvorDSListe(46, null, list);
+	list= new CvorDSListe(14, null, list);
+	list= new CvorDSListe(9, null, list);
+	list= new CvorDSListe(17, null, list);
+	list= new CvorDSListe(2, null, list);
+	list= new CvorDSListe(1, null, list);
+	
+	System.out.println("Elementi liste su: ");
+	i.ispisi(list);
+	System.out.println();
+	CvorDSListe p1= i.invertujLIstu(list);
+	i.ispisi(p1);
+	
+	
+}
+}

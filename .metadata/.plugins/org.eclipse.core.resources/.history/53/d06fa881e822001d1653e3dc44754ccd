@@ -1,0 +1,19 @@
+import labis.cvorovi.CvorStabla;
+
+public class test {
+
+	
+
+	public static void main(String[] args) {
+		stabla4 s= new stabla4();
+	CvorStabla k= null; 
+		s.ubaci(k, 15);
+		s.ubaci(k, 16);
+		s.ubaci(k.levo, 15);
+		s.ubaci(k.desno, 16);
+		s.ispisi(k);
+		
+
+	}
+
+}

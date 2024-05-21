@@ -1,0 +1,39 @@
+package zadatak1;
+
+public class AnalizatorReciIRecenica {
+String tekst="nepoznat";
+
+public String getTekst() {
+	return tekst;
+}
+
+public void setTekst(String tekst) {
+	this.tekst = tekst;
+}
+
+public void bezPrvogSlova() {
+	String krnjiTekst= tekst.substring(1);
+	System.out.println(krnjiTekst);
+}
+
+public void bezPrvaCetiriSlova() {
+	String krnjiTekst= tekst.substring(4);
+	System.out.println(krnjiTekst);
+}
+
+public void bezPrveReci() {
+	
+	String prvaRec= tekst.split(" ")[0];
+	System.out.println(prvaRec);
+	String krnjiTekst= tekst.substring(prvaRec.length());
+	System.out.println("Tekst bez prve reci: "+krnjiTekst);
+}
+
+public String bezPrveRecenice() {
+	String[] prvaRecenica= tekst.split("k");
+	String krnjiTekst= prvaRecenica[1];
+	System.out.println(krnjiTekst);
+
+	return krnjiTekst;
+}
+}

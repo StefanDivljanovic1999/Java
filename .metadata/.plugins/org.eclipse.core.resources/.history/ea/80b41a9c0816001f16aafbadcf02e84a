@@ -1,0 +1,18 @@
+package zadatak1;
+
+public class SlozeniKalkulator {
+
+	static final double Pi=3.14;
+	
+	double podeli(double broj1, double broj2) {
+		return broj1/broj2;
+	}
+	
+	double podeli(int broj1, int broj2) {
+		return broj1/broj2;
+	}
+	
+	double podeliMod(int broj1, int broj2) {
+		
+	}
+}

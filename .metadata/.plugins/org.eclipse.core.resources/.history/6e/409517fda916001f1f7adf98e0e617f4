@@ -1,0 +1,38 @@
+package zadatak1;
+
+public class AnalizatorTeksta {
+ String tekst;
+ public AnalizatorTeksta() {
+	tekst="nepoznat";
+}
+public AnalizatorTeksta(String tekst) {
+	if(tekst!=null) {
+	this.tekst=tekst;
+	} else {
+		this.tekst="nepoznato";
+		System.out.println("Greska!");
+	}
+}
+
+public String getTekst() {
+	return tekst;
+}
+
+public void setTekst(String tekst) {
+	if(tekst!=null)
+	this.tekst = tekst;
+	else System.out.println("Greska");
+}
+
+void dodajTekstNaKraj(String noviTekst) {
+	if(noviTekst==null) {
+		System.out.println("Greska!");
+	}else if (tekst=="nepoznato") {
+		tekst=noviTekst;
+	}else {
+		tekst+=noviTekst;
+	}
+}
+
+
+}

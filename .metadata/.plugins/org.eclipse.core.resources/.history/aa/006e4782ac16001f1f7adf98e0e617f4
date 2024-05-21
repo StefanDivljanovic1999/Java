@@ -1,0 +1,17 @@
+package zadatak1;
+
+public class AnalizatorSlovaUTesktu {
+String tekst="nepoznat";
+
+public String getTekst() {
+	return tekst;
+}
+
+public void setTekst(String tekst) {
+	this.tekst = tekst;
+}
+
+int duzinaTeksta() {
+	return tekst.length();
+}
+}

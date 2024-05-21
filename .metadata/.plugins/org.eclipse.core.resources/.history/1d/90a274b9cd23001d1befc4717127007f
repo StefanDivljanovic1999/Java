@@ -1,0 +1,18 @@
+import labis.cvorovi.CvorStabla;
+
+public class test {
+
+	
+
+	public static void main(String[] args) {
+		stabla4 s= new stabla4();
+		
+		int a=7;
+		int b=a--;
+		b*= a++ * --b;
+		a+= a-- - b++;
+		System.out.println(a+" "+b);
+
+	}
+
+}

@@ -1,0 +1,12 @@
+package zadatal1;
+
+public class ProbaKonvertoraTemperature {
+ 
+	public static void main(String[] args) {
+	 KonvertorTemperature kt= new KonvertorTemperature();
+	 kt.konvertujUCelzijuse(45.9);
+	 kt.konvertujUFarenhajte(0);
+	 kt.vratiAgregatnoStanjeVode(124);
+
+	}
+}

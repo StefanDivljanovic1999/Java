@@ -1,0 +1,73 @@
+import labis.cvorovi.CvorDSListe;
+import labis.liste.ADSLista;
+
+public class invertuj_po_k_jun_19 extends ADSLista {
+ 
+	public void ispisi(CvorDSListe p) {
+	 CvorDSListe pom=p;
+	 while(pom!=null) {
+		 System.out.print(" " +pom.podatak);
+		 pom=pom.sledeci;
+	 }
+ } 
+ 
+	public CvorDSListe invertujLIstu(CvorDSListe cvor) {
+		CvorDSListe c = null;
+		while (cvor != null) {
+		c = new CvorDSListe(cvor.podatak, null, c);
+		if (c.sledeci != null)
+		c.sledeci.prethodni = c;
+		cvor = cvor.sledeci;
+		}
+		return c;
+		}
+	
+	public CvorDSListe invertuj_po_K(CvorDSListe p1,int k) {
+		CvorDSListe p2=null;
+		int i=0;
+       
+		for (i = 0; i < k; i++) {
+			p2= new CvorDSListe(p1.podatak, null, p2);
+			p1=p1.sledeci;
+		}
+		
+        
+		
+		return p2;
+		
+	}
+	
+	public void ubaci_posle_prvog_manjeg(CvorDSListe p1, int el) {
+		if(p1==null) {
+			return;
+		}
+		 if(el==min_element(p1)) {
+
+		 }
+		CvorDSListe pom=p1;
+		while(pom.podatak>el) {
+			pom=pom.sledeci;
+		}
+		pom.sledeci= new CvorDSListe(el, pom, pom.sledeci);
+	}
+	
+	public int min_element(CvorDSListe p1) {
+		int min= Integer.MAX_VALUE;
+	    CvorDSListe pom=p1;
+	    while(pom!=null) {
+	    	if(pom.podatak<min) {
+	    		min=pom.podatak;
+	    	}
+	    	pom=pom.sledeci;
+	    }
+		return min;
+	}
+	
+	public void ubaci_na_kraj_liste(CvorDSListe p1, int el) {
+		CvorDSListe pom=p1;
+		while(pom.sledeci!=null) {
+			pom=pom.sledeci;
+		}
+		pom.sledeci= new CvorDSListe(el, pom, null);
+	}
+}

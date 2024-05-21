@@ -1,0 +1,14 @@
+package zadatak1;
+
+public class ProbaTwitterPoruka {
+
+	public static void main(String[] args) {
+		TwitterPoruka tp= new TwitterPoruka();
+		tp.korisnik="stefandivljanovic99";
+		tp.poruka="Ovo je #moja pr#va #poruka";
+		
+		System.out.println(tp.prebrojHash());
+		System.out.println(tp.prebrojReci());
+	}
+
+}

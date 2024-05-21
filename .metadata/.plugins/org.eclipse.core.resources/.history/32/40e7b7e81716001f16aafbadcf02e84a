@@ -1,0 +1,11 @@
+package zadatak1;
+
+public class ProbaSlozeniKalkulator {
+
+	public static void main(String[] args) {
+		
+	 SlozeniKalkulator sk= new SlozeniKalkulator();
+	 double k=sk.stepenX(3, -5);
+	 System.out.println(k);
+	}
+}

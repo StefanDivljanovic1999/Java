@@ -1,0 +1,18 @@
+import labis.cvorovi.CvorStabla;
+
+public class test {
+
+	
+
+	public static void main(String[] args) {
+		stabla4 s= new stabla4();
+		//s.quiz3(0);
+		int n=2;
+		if(n++>3) {
+			System.out.println(n);
+		}
+	//	System.out.println(n++);
+
+	}
+
+}

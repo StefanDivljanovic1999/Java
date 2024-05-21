@@ -1,0 +1,14 @@
+package zadatak1;
+
+public class ProbaTelevizor {
+
+	public static void main(String[] args) {
+		Televizor t= new Televizor();
+		t.ukljuci();
+		t.pojacaj_ton();
+		t.smanji_ton();
+		System.out.println(t.ispisi());
+		t.vratiJacinuTona();
+		t.promeniProgram(5);
+	}
+}

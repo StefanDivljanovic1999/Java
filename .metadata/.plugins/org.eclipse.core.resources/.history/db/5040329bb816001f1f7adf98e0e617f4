@@ -1,0 +1,76 @@
+package zadatak1;
+
+public class AnalizatorSlovaUTesktu {
+String tekst="nepoznat";
+
+public String getTekst() {
+	return tekst;
+}
+
+public void setTekst(String tekst) {
+	this.tekst = tekst;
+}
+
+int duzinaTeksta() {
+	return tekst.length();
+}
+
+int pojavljivanjeMalogA() {
+	int brojac=0;
+	for (int i = 0; i < tekst.length(); i++) {
+		if(tekst.charAt(i)=='a') {
+			brojac++;
+		}
+	}
+	return brojac;
+}
+
+int pojavljivanjeSlova(char slovo) {
+	int brojac=0;
+	for (int i = 0; i < tekst.length(); i++) {
+		if(tekst.charAt(i)==slovo) {
+			brojac++;
+		}
+	}
+	return brojac;
+	
+}
+
+int brojRecenica() {
+	int brojac=0;
+	for (int i = 0; i <tekst.length(); i++) {
+		if(tekst.charAt(i)=='.' || tekst.charAt(i)=='!' || tekst.charAt(i)=='?') {
+			brojac++;
+		}
+	}
+	return brojac;
+}
+
+int brojSamoglasnika() {
+	int brojac=0;
+	for (int i = 0; i <tekst.length(); i++) {
+		if(tekst.charAt(i)=='a' || tekst.charAt(i)=='A' || tekst.charAt(i)=='e' || tekst.charAt(i)=='E' || tekst.charAt(i)=='i' || tekst.charAt(i)=='I' || tekst.charAt(i)=='o' || tekst.charAt(i)=='O' || tekst.charAt(i)=='u' || tekst.charAt(i)=='U') {
+			brojac++;
+		}
+	}
+	return brojac;
+}
+
+char maxZnak() {
+	int maxPonavljanje=Integer.MIN_VALUE;
+	char maxZnak='a';
+	
+	for (int i = 0; i < tekst.length(); i++) {
+		if(pojavljivanjeSlova(tekst.charAt(i))>maxPonavljanje) {
+			maxPonavljanje=pojavljivanjeSlova(tekst.charAt(i));
+			maxZnak=tekst.charAt(i);
+		
+		}
+	}
+	System.out.println(maxZnak);
+	//System.out.println("Broj ponavljanja: "+maxPonavljanje+" Karakter: ");
+	return maxZnak;
+
+}
+
+}

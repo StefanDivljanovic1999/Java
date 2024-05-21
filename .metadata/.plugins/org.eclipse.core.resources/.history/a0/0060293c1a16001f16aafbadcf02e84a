@@ -1,0 +1,10 @@
+package zadatak2;
+
+public class SlozeniKalkulator2 {
+
+	void ispisi55Do0() {
+		for(int i=55;i>0;i--) {
+			System.out.print(i+" ");
+		}
+	}
+}

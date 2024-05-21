@@ -1,0 +1,10 @@
+package zadatak1;
+
+import java.util.GregorianCalendar;
+
+public class TwitterPoruka {
+String korisnik="nepoznato";
+String poruka="nepoznato";
+GregorianCalendar datum;
+
+}

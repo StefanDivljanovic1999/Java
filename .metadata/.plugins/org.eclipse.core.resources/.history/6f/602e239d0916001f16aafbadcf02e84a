@@ -1,0 +1,10 @@
+package zadatak1;
+
+public class ProbaSlozeniKalkulator {
+
+	public static void main(String[] args) {
+		SlozeniKalkulator sk= new SlozeniKalkulator();
+		int br=sk.podeliMod(0, 20);
+		System.out.println(br);
+	}
+}

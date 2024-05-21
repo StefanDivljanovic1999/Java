@@ -1,0 +1,35 @@
+package zadatak1;
+
+public class OceneStudenata {
+
+	String[] ocene= new String[20];
+	private String[] indeks;
+	private String[] ime;
+
+	public OceneStudenata(String viseOcena) {
+		if(viseOcena==null) {
+			System.out.println("Greska!");
+		}
+		String ocena[]= viseOcena.split(";");
+		for (int i = 0; i < ocena.length; i++) {
+			ocene[i]=ocena[i];
+		}
+	}
+	
+	void ispisiPodatke() {
+		
+		String[] indeks= new String[ocene.length];
+		for (int i = 0; i < ocene.length; i++) {
+			if(ocene[i]!=null)
+			indeks[i]= ocene[i].split(" ")[0];
+		}
+		System.out.println(indeks[1]);
+	//System.out.println((i+1)+"Indeks: "+indeks[i]+", ime: "+ime[i]+", prezime: "+prezime[i]+", ocena: "+ocene[i]);
+			
+		}
+	
+}
+	
+
+	
+

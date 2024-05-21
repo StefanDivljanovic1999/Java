@@ -1,0 +1,409 @@
+import javax.sql.PooledConnection;
+
+import labis.cvorovi.CvorStabla;
+import labis.stabla.ABinarnoStablo;
+
+public class stabla4 extends ABinarnoStablo {
+	public int broj(CvorStabla k) {
+		if(k==null) {
+			return 0;
+		}
+		return 1+broj(k.levo)+broj(k.desno);
+	}
+	public int zbir(CvorStabla k) {
+		if(k==null) {
+			return 0;
+		}
+	return 	k.podatak+  zbir(k.levo)+zbir(k.desno);
+	}
+	public int zbir_parnih(CvorStabla k) {
+		if(k==null) {
+			return 0;
+		}
+		if(k.podatak%2==0) {
+			return k.podatak+zbir_parnih(k.levo)+zbir_parnih(k.desno);
+		}
+		return zbir_parnih(k.levo)+zbir_parnih(k.desno);
+	}
+	public int proizvod_pozitivnih_trocifrenih(CvorStabla k) {
+		if(k==null) {
+			return 1;
+		}
+		if(k.podatak>99 && k.podatak<1000) {
+			return k.podatak*proizvod_pozitivnih_trocifrenih(k.levo)*proizvod_pozitivnih_trocifrenih(k.desno);
+		}
+		return proizvod_pozitivnih_trocifrenih(k.levo)*proizvod_pozitivnih_trocifrenih(k.desno);
+	}
+	public int broj_neparnih_listova(CvorStabla k) {
+		if(k==null) {
+			return 0;
+		}
+		if(k.levo== null && k.desno==null && k.podatak%2!=0) {
+			return 1+broj_neparnih_listova(k.levo)+broj_neparnih_listova(k.desno);
+		}
+		return broj_neparnih_listova(k.levo)+broj_neparnih_listova(k.desno);
+	}
+	public int zbir_negativnih_polulistova(CvorStabla k) {
+		if(k==null) {
+			return 0;
+		}
+		if((k.levo==null) != (k.desno==null) && k.podatak<0) {
+			return k.podatak+zbir_negativnih_polulistova(k.levo)+zbir_negativnih_polulistova(k.desno);
+		}
+		return zbir_negativnih_polulistova(k.levo)+zbir_negativnih_polulistova(k.desno);
+	
+	}
+	public int proizvod_un_deca_listovi(CvorStabla k) {
+		if(k==null) {
+			return 1;
+		}
+		if((k.levo!=null && k.desno!=null) && 
+				(k.levo.levo==null && k.levo.desno==null) && (k.desno.desno==null&& k.desno.levo==null)) {
+			return k.podatak*proizvod_un_deca_listovi(k.levo)*proizvod_pozitivnih_trocifrenih(k.desno);
+		}
+		return proizvod_un_deca_listovi(k.levo)*proizvod_pozitivnih_trocifrenih(k.desno);
+	}
+	public boolean prost(int p) {
+		int brojac=0;
+		for (int i = 1; i <=p; i++) {
+			if(p%i==0) {
+				brojac++;
+			}
+		}
+		return brojac==2;
+	}
+	public int proizvod_prostih(CvorStabla k) {
+		if(k==null) {
+			return 1;
+		}
+		if(prost(k.podatak)) {
+			return k.podatak*proizvod_prostih(k.levo)*proizvod_prostih(k.desno);
+		}
+		return proizvod_prostih(k.levo)*proizvod_prostih(k.desno);
+	}
+	public int zbir_deljivih_bar_jednim_detetom(CvorStabla k) {
+		if(k==null) {
+			return 0;
+		}
+		if((k.levo!=null && k.podatak%k.levo.podatak==0) ||
+				(k.desno!=null && k.podatak%k.desno.podatak==0)) {
+			return k.podatak+zbir_deljivih_bar_jednim_detetom(k.levo)+zbir_deljivih_bar_jednim_detetom(k.desno);
+		}
+		return zbir_deljivih_bar_jednim_detetom(k.levo)+zbir_deljivih_bar_jednim_detetom(k.desno);
+	}
+	public boolean postoji(CvorStabla k,int p) {
+		if(k==null) {
+			return false;
+		}
+		if(k.podatak==p) {
+			return true;
+		}
+		return postoji(k.levo, p) || postoji(k.desno, p);
+	}
+	public boolean postoji_cvor_u_stablu(CvorStabla k, CvorStabla c) {
+		if(k==null || c==null) {
+			return false;
+		}
+		if(k==c) {
+			return true;
+		}
+		return postoji_cvor_u_stablu(k.levo, c) || postoji_cvor_u_stablu(k.desno, c);
+	}
+	public boolean postoji_neparan_list(CvorStabla k) {
+		if(k==null) {
+			return false;
+		}
+		if(k.levo==null && k.desno==null && k.podatak%2!=0) {
+			return true;
+		}
+		return postoji_neparan_list(k.levo)||postoji_neparan_list(k.desno);
+	}
+	public boolean svaki_polulist_ima_parno_dete(CvorStabla k) {
+		if(k==null) {
+			return true;
+		}
+		if((k.levo!=null && k.desno==null && k.levo.podatak%2!=0)
+				|| (k.desno!=null && k.levo==null && k.desno.podatak%2!=0)) {
+			return false;
+		}
+		return svaki_polulist_ima_parno_dete(k.levo)&&svaki_polulist_ima_parno_dete(k.desno);
+	}
+	public boolean svi_pozitivni(CvorStabla k) {
+		if(k==null) {
+			return true;
+		}
+		if(k.podatak<0) {
+			return false;
+		}
+		return svi_pozitivni(k.levo)&&svi_pozitivni(k.desno);
+	}
+	public boolean svi_listovi_deljivi_roditeljem(CvorStabla k) {
+		if(k==null) {
+			return true;
+		}
+		if((k.levo!=null && k.levo.levo==null && k.levo.desno==null && k.levo.podatak%k.podatak!=0) ||
+			(k.desno!=null && k.desno.levo==null && k.desno.desno==null && k.desno.podatak%k.podatak!=0)) {
+			return false;
+		}
+		return svi_listovi_deljivi_roditeljem(k.levo)&& svi_listovi_deljivi_roditeljem(k.desno);
+	}
+	public boolean svi_unutrasnji_deljivi_korenom(CvorStabla k) {
+		if(k==null) {
+			return true;
+		}
+		if(k.levo!=null && k.desno!=null && k.podatak%koren.podatak!=0) {
+			return false;
+		}
+		return svi_unutrasnji_deljivi_korenom(k.levo)&&svi_unutrasnji_deljivi_korenom(k.desno);
+	}
+	public int max_vr(CvorStabla k) {
+		if(k==null) {
+			return Integer.MIN_VALUE;
+		}
+		return Math.max(k.podatak, Math.max(max_vr(k.levo), max_vr(k.desno)));
+	}
+	public CvorStabla min(CvorStabla k) {
+		if(k==null) {
+			return null;
+		}
+		CvorStabla min=k;
+		CvorStabla l= min(k.levo);
+		CvorStabla d= min(k.desno);
+		if(l!=null && l.podatak<min.podatak) {
+			min=l;
+		}
+		if(d!=null && d.podatak<min.podatak) {
+			min=d;
+		}
+		return min;
+	}
+	public CvorStabla min_pozitivan(CvorStabla k) {
+		if(k==null) {
+			return null;
+		}
+		CvorStabla min=null;
+		CvorStabla l= min_pozitivan(k.levo);
+		CvorStabla d= min(k.desno);
+		if(l.podatak>0) {
+			min=l;
+		}
+		if(l!=null && (min==null || l.podatak<min.podatak)) {
+			min=l;
+		}
+		if(d!=null &&(min==null || d.podatak<min.podatak)) {
+			min=d;
+		}
+		return min;
+		
+	}
+	public CvorStabla pronadji(CvorStabla k, int p) {
+		if(k==null) {
+			return null;
+		}
+		if(k.podatak==p) {
+			return k;
+		}
+		CvorStabla l=pronadji(k.levo, p);
+		CvorStabla d= pronadji(k.desno, p);
+	 if(l!=null) {
+		 return l;
+	 }
+	 return d;
+	}
+	public CvorStabla pronadjiBST(CvorStabla k, int p) {
+		if(k==null) {
+			return null;
+		}
+		if(k.podatak==p) {
+			return k;
+		}
+		if(k.podatak<p) {
+			return pronadjiBST(k.levo, p);
+		}
+		return pronadjiBST(k.desno, p);
+	}
+	public CvorStabla roditelj(CvorStabla k, CvorStabla c) {
+		if(k==null || c==null || k==c) {
+			return null;
+		}
+		if(k.levo==c || k.desno==c) {
+			return k;
+		}
+		CvorStabla l= roditelj(k.levo, c);
+		CvorStabla d= roditelj(k.desno, c);
+		if(l!=null) {
+			return l;
+		}
+		return d;
+	}
+	public int visina(CvorStabla k) {
+		if(k==null) {
+			return 0;
+		}
+		return 1+Math.max(visina(k.levo), visina(k.desno));
+	}
+	public int nivo(CvorStabla k, CvorStabla c) {
+		if(k== null || c==null || !postoji_cvor_u_stablu(k, c)) {
+			return 0;
+		}
+		if(k==c) {
+			return 1;
+		}
+		if(postoji_cvor_u_stablu(k.levo, c)) {
+			return 1+nivo(k.levo, c);
+		}
+		return 1+nivo(k.desno, c);
+	}
+	public CvorStabla maxPolulist(CvorStabla k) {
+		if(k==null) {
+			return null;
+		}
+		CvorStabla max=null;
+		if((k.levo==null) != (k.desno==null)) {
+			max=k;
+		}
+		CvorStabla l= maxPolulist(k.levo);
+		CvorStabla d= maxPolulist(k.desno);
+		if(l!=null && (max==null || l.podatak>max.podatak)) {
+			max=l;
+		}
+		if(d!=null && (max==null || d.podatak>max.podatak)) {
+			max=d;
+		}
+		return max;
+	}
+	public CvorStabla najdublji_list(CvorStabla k) {
+		if(k==null) {
+			return null;
+		}
+		if(k.levo==null && k.desno==null) {
+			return k;
+		}
+		if(visina(k.levo)>visina(k.desno)) {
+			return najdublji_list(k.levo)
+					;
+		}
+		return najdublji_list(k.desno);
+	}
+	public CvorStabla najplici_list(CvorStabla k) {
+		if(k==null) {
+			return null;
+		}
+		if(k.levo==null && k.desno==null) {
+			return k;
+		}
+		CvorStabla l= najdublji_list(k.levo);
+		CvorStabla d= najplici_list(k.desno);
+		if(l==null) {
+			return d;
+		}
+		if(d==null) {
+			return l;
+		}
+		if(nivo(k, l)<nivo(k, d)) {
+			return l;
+		} else {
+			return d;
+		}
+	}
+	public void ispisi_polulistove_na_nivou(CvorStabla k, int n) {
+		if(k==null || n<1) {
+			return;
+		}
+		if((k.levo==null)!=(k.desno==null) && nivo(koren, k)==n) {
+			System.out.println(k.podatak);
+		}
+		ispisi_polulistove_na_nivou(k.levo, n);
+		ispisi_polulistove_na_nivou(k.desno, n);
+	}
+	public void ispisi(CvorStabla k) {
+		if(k==null) {
+			return;
+		}
+		System.out.print("  "+k.podatak);
+		ispisi(k.levo);
+		ispisi(k.desno);
+	}
+	public void ispisi_polulistove_rastuce(CvorStabla k) {
+		if(k==null) {
+			return;
+		}
+		ispisi_polulistove_rastuce(k.levo);
+		if((k.levo==null)!=(k.desno==null)) {
+			System.out.println(k.podatak);
+		}
+		ispisi_polulistove_rastuce(k.desno);
+		
+	}
+	public void iste_parnosti_kao_koren(CvorStabla k) {
+		if(k==null) {
+			return;
+		}
+		iste_parnosti_kao_koren(k.desno);
+		if((k.podatak%2==0 && koren.podatak%2==0) ||
+				(k.podatak%2!=0 && koren.podatak%2!=0)) {
+			System.out.println(k.podatak);
+		}
+		iste_parnosti_kao_koren(k.levo);
+	}
+	public void ispisi_sve_parne_listove_rastuce(CvorStabla k) {
+		if(k==null) {
+			return;
+		}
+		ispisi_sve_parne_listove_rastuce(k.levo);
+		if(k.podatak%2==0 && k.levo==null && k.desno==null) {
+			System.out.println(k.podatak);
+		}
+		ispisi_sve_parne_listove_rastuce(k.desno);
+	}
+	public void tri_puta_vece_u_levom_nego_u_desnom(CvorStabla k) {
+		if(k==null) {
+			return;
+		}
+		tri_puta_vece_u_levom_nego_u_desnom(k.desno);
+		if(broj(k.levo)==3*broj(k.desno)) {
+			System.out.println(k.podatak);
+		}
+		tri_puta_vece_u_levom_nego_u_desnom(k.levo);
+	}
+	public boolean balansirano(CvorStabla k) {
+		if(k==null) {
+			return true;
+		}
+		if(Math.abs(visina(k.levo)-visina(k.desno))>1) {
+			return false;
+		}
+		return balansirano(k.levo)&&balansirano(k.desno);
+	}
+	public boolean kompletno(CvorStabla k) {
+		if(k==null) {
+			return true;
+		}
+		if(visina(k.levo) != visina(k.desno)) {
+			return false;
+		}
+		return kompletno(k.levo)&&kompletno(k.desno);
+	}
+	public boolean BST(CvorStabla k) {
+		if(k==null) {
+			return true;
+		}
+		if(!(max_vr(k.levo)<k.podatak && k.podatak<max_vr(k.desno))) {
+			return false;
+		}
+		return BST(k.levo)&&BST(k.desno);
+	}
+
+	
+	public boolean heap(CvorStabla k) {
+		if(k==null) {
+			return true;
+		}
+		if(koren.podatak<max_vr(k)) {
+			return false;
+		}
+		return heap(k.levo)&&heap(k.desno);
+	}
+	
+
+} 

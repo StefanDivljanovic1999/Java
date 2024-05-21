@@ -1,0 +1,16 @@
+package zadatak1;
+
+public class ProbaAnalizeReciIRecenica {
+public static void main(String[] args) {
+	AnalizatorReciIRecenica a= new AnalizatorReciIRecenica();
+	a.setTekst("K kUruz. sa sirom . Burek sa visnjom. Sirom iz kuruz");
+	
+	System.out.println("Tekst bez prve recenice: "+a.bezPrveRecenice());
+	System.out.println("Poslednja rec u tekstu je: "+a.PoslednjaRec());
+	System.out.println("Poslednja recenica u tekstu je: "+a.PoslednjaRecenica());
+	System.out.println("Broj reci u tekstu iz zagrade: "+a.brojReciUTekstu(a.getTekst(),"kuruz"));
+	
+	String tekst="Danas je  kisan dan. Juce je bio lepsi dan. Letnji dan.";
+	System.out.println("Max rec u tekstu je : "+a.maxRec(tekst));
+}
+}

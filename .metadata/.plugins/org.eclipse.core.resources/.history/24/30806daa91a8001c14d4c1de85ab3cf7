@@ -1,0 +1,27 @@
+package zadatak1;
+
+public class Niz_Gradova {
+void sr(int niz[], int el) {
+	int brojac=0;
+	while(brojac<niz.length) {
+		niz[brojac]=el;
+		brojac=brojac+1;
+		System.out.println(brojac);
+		break;
+	}
+		
+	
+}
+void ispisiNiz(int niz[]) {
+	for (int i = 0; i < niz.length; i++) {
+		System.out.println(i+1+"."+niz[i]);
+	}
+}
+void saberi(int x, int y) {
+	System.out.println("Zbir brojeva " +x+" i " +y+ " je: " +(x+y));
+}
+void oduzmi(int x, int y) {
+	System.out.println("Razlika brojeva " +x+" i " +y+ " je: " +(x-y));
+}
+
+}
